@@ -1,6 +1,6 @@
 # twitter-clone
 
-### install dependencies
+## install dependencies
 
 
 `npm i`
@@ -11,7 +11,7 @@ npm i express mongoose bcryptjs jsonwebtoken
 npm i nodemon (optional)
 ```
 
-### create `.keys.js` in root directory
+## create `.keys.js` in root directory
 
 
 ```javascript
@@ -21,3 +21,11 @@ module.exports = {
 	JWT_SECRET: "<insert_secret_number_here>"
 }
 ```
+
+## run
+
+`node App.js`
+
+OR
+
+`node App`
