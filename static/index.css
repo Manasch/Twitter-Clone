@@ -1,0 +1,82 @@
+body {
+    min-height: 100vh;
+}
+
+#back {
+    position: relative;
+    display: flex;
+    border-style: solid;
+    border-width: 4px;
+    /* border-color:rgba(255, 0, 0,0.5); */
+    /* border-color: #a08993; */
+    height: 50%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1a0e18;
+}
+
+#container {
+    position: relative;
+    display: flex;
+    border-style: solid;
+    border-width: 4px;
+    /* border-color:rgba(255, 0, 0,0.5); */
+    border-color: #a08993;
+    height: 100%;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1a0e18;
+}
+
+body {
+    background-color: #390d3e;
+}
+
+#page {
+    background-color: #390d3e;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.entertext {
+    width: 90%;
+    height: 3vh;
+    background-color: #d2d1cc;
+    font-weight: 600;
+    color: white;
+}
+
+::placeholder {
+    /*To make placeholder text black in color*/
+    color: black;
+    opacity: 1;
+}
+
+.submit {
+    width: 70px;
+    height: 20%;
+    background-color: black;
+    color: white;
+    font-size: large;
+}
+
+.label {
+    color: white;
+    font-size: larger;
+}
+
+.login {
+    color: white;
+    /* background-color: black; */
+}
+
+.signup {
+    color: white;
+    /* background-color: black; */
+}

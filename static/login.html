@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <div id="page">
+        <div id="back">
+            <div id="container">
+                <div id="head">
+                    <h1 class="login">Login</h1>
+                </div>
+                <div id="formarea">
+                    <form action="" class="form">
+                        <label class="label">Username:</label><br/>
+                        <input type="text" class="input" name="username" placeholder="Enter username here" class="entertext" id="username" autoFocus/><br/><br/><br/>
+                        <label class="label">Password:</label><br/>
+                        <input type="password" name="password" placeholder="enter password" maxLength="8" class="entertext" id="password" /><br/><br/><br/>
+                    </form>
+                </div>
+                <div id="submitarea">
+                    <button type="submit" class="submit" id="submit">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const submitbutton = document.getElementById("submit");
+        submitbutton.addEventListener('click', loginUser);
+
+        async function loginUser(event) {
+            const username = document.getElementById("username").value
+            const password = document.getElementById("password").value
+            console.log(username);
+            console.log(password);
+
+            const result = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }).then((res) => res.json())
+            if (result.token != undefined) {
+                // console.log(result.token);
+                const result2 = await fetch('/home', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + result.token
+                    }
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>
