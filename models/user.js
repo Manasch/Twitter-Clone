@@ -24,6 +24,10 @@ const UserSchema = new mongoose.Schema({
     dob: {
         type: Date,
         required: false
+    },
+    current: {
+        type: Boolean,
+        required: true
     }
 });
 

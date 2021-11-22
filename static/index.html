@@ -1,99 +1,127 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js">
-    </script>
-    <script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
-    </script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/index.css">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Quitter</title>
+		<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"></script>
+		<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/index.css">
+	</head>
 
-<body>
-    <div id="page">
-        <div id="back">
-            <div id="container">
-                <div id="head">
-                    <h1 class="login">Login</h1>
-                </div>
-                <div id="formarea">
-                    <form method="get" action="" class="form">
-                        <label class="label">Name:</label><br/>
-                        <input type="text" class="input" name="name" placeholder="Enter name here" class="entertext" id="name" autoFocus/><br/><br/><br/>
-                        <label class="label">Gmail:</label><br/>
-                        <input type="email" name="email" placeholder="Enter text" required class="entertext" id="email" /><br/><br/><br/>
-                        <label class="label">Password:</label><br/>
-                        <input type="password" name=" password" placeholder="Max length 8" maxLength="8" class="entertext" id="password" /><br/><br/><br/>
-                    </form>
-                </div>
-                <div id="submitarea">
-                    <button type="submit" class="submit" id="submit">Register</button>
-                    <button type="submit" class="submit" id="submit1">Login</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<body>
+		<div id="root">
+			<div id="back">
+				<div id="container">
+					<div id="top"></div>
+					<div id="left"></div>
+					<div id="center-top"></div>
+					<div id="center"></div>
+					<div id="center-bottom"></div>
+					<div id="bottom"></div>
+				</div>
+			</div>
+		</div>
 
+		<script type="text/babel">
+			class Head extends React.Component
+			{
+				constructor(props)
+				{
+					super(props);
+					render()
+					{
+						return <h1>{this.props.title}</h1>
+					}
+				}
+			}
 
-    <script>
-        const submitbutton = document.getElementById("submit")
-        const submitbutton1 = document.getElementById("submit1")
-        submitbutton.addEventListener('click', registerUser)
-        submitbutton1.addEventListener('click', registerUser1)
+			class Form extends React.Component
+			{
+				constructor(props)
+				{
+					super(props);
+					
+					render()
+					{
+						if (this.props.title == "signup")
+						{
+							return (
+									<form class="form">
+										<label class="label">Name:</label><br/>
+										<input type="text" class="input" name="name" placeholder="enter name" class="entertext" id="name" autoFocus/><br/><br/><br/>
+										<label class="label">Username:</label><br/>
+										<input type="text" class="input" name="username" placeholder="enter username" class="entertext" id="username" autoFocus/><br/><br/><br/>
+										<label class="label">Email:</label><br/>
+										<input type="email" name="email" placeholder="enter email id" required class="entertext" id="email" /><br/><br/><br/>
+										<label class="label">Password:</label><br/>
+										<input type="password" name="password" placeholder="enter password" class="entertext" id="password" /><br/><br/><br/>
+										<label class="label">DOB:</label><br/>
+										<input type="date" name="dob" placeholder="DD/MM/YYYY" class="date" id="dob" /><br/><br/><br/>
+									</form>
+							);
+						}
+						else if (this.props.title == "login")
+						{
+							return (
+								<form class="form">
+									<label class="label">Username:</label><br/>
+									<input type="text" class="input" name="username" placeholder="enter username" class="entertext" id="username" autoFocus/><br/><br/><br/>
+									<label class="label">Password:</label><br/>
+									<input type="password" name="password" placeholder="enter password" class="entertext" id="password" /><br/><br/><br/>
+									<button type="submit" class="submit" id="submit">Submit</button>
+								</form>
+							);
+						}
+					}
+				}
+			} 
+			
+			class formSubmit extends React.Component
+			{
+				render()
+				{
+					return
+					(
+						<button type="submit" class="submit" id="submit">Submit</button>
+					);
+				}
+			} 
+			
+			ReactDOM.render(
+				<Head title='signup'/>,
+				document.getElementById("head")
+			);
+			ReactDOM.render(
+				<Form />,
+				document.getElementById("formarea")
+			);
+			ReactDOM.render(
+				<Submitform />, 
+				document.getElementById("submitarea")
+			);
 
-        async function registerUser(event) {
-            const name = document.getElementById("name").value
-            const password = document.getElementById("password").value
-            const email = document.getElementById("email").value
-            console.log(name);
-            console.log(password);
-            console.log(email);
-
-
-            const result = await fetch('/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    password,
-                    email
-                })
-            }).then((res) => res.json())
-            console.log(result)
-        }
-
-        async function registerUser1(event) {
-            const name = document.getElementById("name").value
-            const password = document.getElementById("password").value
-            const email = document.getElementById("email").value
-            console.log(name);
-            console.log(password);
-            console.log(email);
-
-
-            const result = await fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    password,
-                    email
-                })
-            }).then((res) => res.json())
-            console.log(result)
-        }
-    </script>
-
-</body>
-
-</html>
+			const submitbutton = document.getElementById("submit");
+			submitbutton.addEventListener("click", registerUser);
+			async function registerUser(event)
+			{
+				const name = document.getElementById("name");
+				const password = document.getElementById("password");
+				const email = document.getElementById("email");
+				const result = await fetch("/api/register",
+				{
+					method: "POST", headers:
+					{
+						"Content-Type": "application/json", 
+					},
+					body: JSON.stringify({
+						name, password, email,
+					}),
+				}).then((res) => res.json()); console.log(result);
+			}
+		</script>
+	</body>
+</html> -->

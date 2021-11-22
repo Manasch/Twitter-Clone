@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
-    <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js">
+    <title>Sign Up</title>
+    <!-- <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js">
     </script>
     <script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
     </script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="/index.css">
 </head>
 
@@ -23,7 +23,7 @@
                     <h1 class="signup">Sign Up</h1>
                 </div>
                 <div id="formarea">
-                    <form action="" class="form">
+                    <form class="form">
                         <label class="label">Name:</label><br/>
                         <input type="text" class="input" name="name" placeholder="Enter name here" class="entertext" id="name" autoFocus/><br/><br/><br/>
                         <label class="label">Username:</label><br/>
@@ -43,7 +43,6 @@
         </div>
     </div>
 
-
     <script>
         const submitbutton = document.getElementById("submit")
         submitbutton.addEventListener('click', registerUser)
@@ -61,19 +60,18 @@
             console.log(dob);
 
             const result = await fetch('/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    email,
-                    password,
-                    name,
-                    dob
-                })
-            }).then((res) => res.json());
-            console.log(result);
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username,
+                        email,
+                        password,
+                        name,
+                        dob
+                    })
+                }).then((res) => res.json())
         }
     </script>
 
