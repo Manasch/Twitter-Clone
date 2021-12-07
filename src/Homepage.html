@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>test</title>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" src="Homepage.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            class Button extends React.Component {
+                constructor(props) {
+                    super(props);
+                }
+
+                render() {
+                    return (
+                        <button>{this.props.value}</button>
+                    )
+                }
+            }
+
+            class Home extends React.Component {
+                render() {
+                    return (
+                        <div className="Home" {...this.props}>
+                            <Button className="sign-up" value="Sign Up"/>
+                            <Button classname="sign-in" value="Sign In"/>
+                        </div>
+                    )
+                }
+        }
+        
+        ReactDOM.render(
+            <Home />,
+            document.querySelector("#root")
+        )
+        </script>
+    </body>
+</html>
