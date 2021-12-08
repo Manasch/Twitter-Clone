@@ -1,36 +1,109 @@
-.Home {
-    text-align: center;
+.home {
+    /* align-items: center; */
     padding-top: 0%;
+    height: 100%;
 }
 
-body {
-    background-image: linear-gradient(#e66465, #9198e5);
+html, body {
+    background-image: url("./images/bg1.png");
+}
+
+.home .title {
+    position: absolute;
+    bottom: 50%;
+    top: 30%;
+    left: 40%;
+    box-sizing: content-box;
+    /* background-color: #fffdd0; */
+    padding-bottom: 5%;
+    padding-top : 5%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    /* border: dashed; */
+    font-family: sans-serif;
+    font-size: 3em;
+    border-radius: .3275em;
+    /* box-shadow: .625em .625em .625em black; */
+    border-color: lightblue;
+    color: black;
+}
+
+.top {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 20rem;
+}
+
+.logo {
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    top: 0em;
+    left: 5px;
+    bottom: 5em;
 }
 
 button {
-    background-color: blueviolet;
+  background-color: #8080ff;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
 }
 
 button:hover {
-    background-color: red;
+  background-color: #ffe066;
 }
 
-.Top {
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 100%;
+button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+
+.bottom {
+    /* display: flex;
+    flex-direction: column; */
     position: relative;
+    background-color: grey;
+    /* inlin */
 }
 
-#bg {
-    width: 100%;
-    height: 20em;
-    object-fit: cover;
+.sign-up {
+    
     position: absolute;
+    left: 50%;
 }
 
-#logo {
-    width: 10%;
-    height: 10%;
+.sign-in {
     position: absolute;
+    right: 0%;
 }
+
+/* @media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+} */
