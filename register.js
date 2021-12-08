@@ -1,21 +1,13 @@
-const React = require("react")
-const ReactDOM=require("react-dom")
-
 class Register extends React.Component{
     constructor(props){
         super(props)
         this.state={username:"",
-                    password:""};
+                    password:"",
+                email:"", password2:""};
                     this.username=React.createRef();
                     this.passowrd=React.createRef();
     }
-    handleSubmit(event)
-    {
-        event.preventDefault();
-        this.state.username=this.username.current.value;
-        this.state.password=this.passowrd.current.value;
-    }
-
+    
     
     render(){
         var header ={
@@ -55,14 +47,35 @@ class Register extends React.Component{
                 <div style={header}><h1>Twitter</h1></div><br/>
                 <div style={form}>
                     <form onSubmit={this.handleSubmit}>
-                        <label>Enter Email: </label><br/><input type="text" value="Email-Id"/><br/><br/>
-                        <label>Enter your Username: </label><br/><input type="text" value="Username" ref= {this.username}/><br/><br/>
-                        <label>Set your Password: </label><br/><input type="text" value="Password" ref={this.password}/><br/><br/>
-                        <label>Repeat Password: </label><br/><input type="text" value="Repeat Password"/><br/><br/>
+                        <label>Enter Email: </label><br/><input type="text" name="email" defaultValue="Email-Id" onChange={this.handleChange}/><br/><br/>
+                        <label>Enter your Username: </label><br/><input type="text" name="username" defaultValue="Username" ref= {this.username} onChange={this.handleChange}/><br/><br/>
+                        <label>Set your Password: </label><br/><input type="text" name="password" defaultValue="Password" ref={this.password} onChange={this.handleChange}/><br/><br/>
+                        <label>Repeat Password: </label><br/><input type="text" name="password2" defaultValue="Repeat Password" onChange={this.handleChange}/><br/><br/>
+                        <input type = "submit" value = "Submit" />
                     </form>
                 </div>
             </div>
         )
+    handleSubmit=(event)=>
+    {
+        event.preventDefault();
+        alert("Form submitted");
+    }
+
+    handleChange=(event)=>
+    {
+        var name1 = event.target.name
+        var value1 = event.target.value
+        if(name1 == "email")
+        this.setState({email:value1})
+        if(name1 == "username")
+        this.setState({username:value1})
+        if(name1 == "password")
+        this.setState({passowrd:value1})
+        if(name1 == "password2")
+        this.setState({password2:value1})
+    }
+
     }
 }
 

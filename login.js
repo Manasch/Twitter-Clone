@@ -8,13 +8,21 @@ class Register extends React.Component{
                     this.username=React.createRef();
                     this.passowrd=React.createRef();
     }
-    handleSubmit(event)
+    handleSubmit=(event)=>
     {
         event.preventDefault();
         this.state.username=this.username.current.value;
         this.state.password=this.passowrd.current.value;
     }
-
+    handleChange=(event)=>
+    {
+        var name1 = event.target.name
+        var value1 = event.target.value
+        if(name1 == "username")
+        this.setState({username:value1})
+        if(name1 == "password")
+        this.setState({passowrd:value1})
+    }
     
     render(){
         var header ={
@@ -55,9 +63,9 @@ class Register extends React.Component{
                 <div style={form}>
                     <form onSubmit={this.handleSubmit}>
                         
-                        <label>Enter your Username: </label><br/><input type="text" value="Username" ref= {this.username}/><br/><br/>
-                        <label>Enter your Password: </label><br/><input type="text" value="Password" ref={this.password}/><br/><br/>
-                       
+                        <label>Enter your Username: </label><br/><input type="text" defaultValue="Username" onChange= {this.handleChange}ref= {this.username}/><br/><br/>
+                        <label>Enter your Password: </label><br/><input type="text" defaultValue="Password" onChange= {this.handleChange} ref={this.password}/><br/><br/>
+                       <input type="button" value="submit"/>
                     </form>
                 </div>
             </div>
