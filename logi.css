@@ -1,0 +1,73 @@
+.form{
+     margin-left:"50%";
+    margin-top:"25%"; 
+   
+    padding-right: 150px;
+    padding-top:500px;
+    padding-bottom: 50;
+    padding-left:150;
+    width: 300px; 
+    height: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    color:"crimson";
+    background-color:rgb(238, 224, 241);
+    border-radius: "10px";
+    box-shadow: "5px 5px 10px black";
+}
+
+.header{
+        background-color:rgb(197, 135, 187);
+        padding: 5px;
+        font-family:sans-serif;
+        margin-top: 0;
+        position: absolute; left: 0px; right: 100px; width: 1525px;
+        color:"White";
+        text-align: center;
+        vertical-align: middle;
+        display:"table";
+}
+
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.myClass{
+  width: 175px; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
