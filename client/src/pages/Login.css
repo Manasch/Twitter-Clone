@@ -1,0 +1,30 @@
+.Login {
+    padding-top: 0%;
+  height: 100%;
+  background-color: #422800;
+}
+
+html,
+body {
+ /* background-image: url("./images/wp4288389-aesthetic-laptop-wallpapers.jpg");  */
+ background-color: transparent;
+/* background: linear-gradient(90deg, rgba(251,251,150,1) 0%, rgba(235,240,156,1) 50%, rgba(146,247,243,1) 100%);   */
+   margin-bottom: 0%; 
+ }
+
+.login1 {
+    	position: absolute;
+	right: 500px;
+	top:150px;
+    width:400px;
+}
+
+.top1 .bg1 {
+    position:absolute;
+    height: 720px;
+    width:1536px;
+}
+
+.login1 .desc11 {
+    color:blue;
+}
