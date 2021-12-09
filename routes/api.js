@@ -37,6 +37,16 @@ router.post('/save', (req, res) => {
     })
 });
 
+router.put('/delete', (req, res) => {
+    console.log(req.body);
+    var { tweet_id, username, tweets_array } = req.body;
+    console.log(tweet_id);
+    User.findOneAndUpdate({ username: username }, {tweets: tweets_array}, null, (err, res) => {
+        if (err) throw err;
+        console.log(res);
+    })
+})
+
 router.post('/logout', (req, res) => {
     var { username } = req.body;
     User.findOneAndUpdate({ username: username }, { current: false }, null, function(err) {

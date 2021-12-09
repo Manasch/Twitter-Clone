@@ -89,6 +89,42 @@ class Home extends React.Component {
     });
   };
 
+  deleteTweet = (event) => {
+    event.preventDefault();
+    let { id } = event.target;
+
+    console.log(this.state.tweets)
+
+    var tweets_array = this.state.tweets;
+    tweets_array.splice(id, 1);
+
+    this.setState({
+      tweets: tweets_array
+    })
+
+    const payload = {
+      username: this.state.username,
+      tweet_id: id,
+      tweets_array: this.state.tweets
+    };
+
+    axios({
+      url: '/api/delete',
+      method: 'PUT',
+      data: payload
+    })
+    .then((response) => {
+      data = response.body;
+      console.log(data)
+      console.log('Data has been sent to the server');
+      this.resetUserInputs();
+      this.setState({tweets: data });
+    })
+    .catch(() => {
+      console.log('Server error while deleting tweets');
+    });
+  };
+
   displayTweets = (tweets) => {
 
     if (!tweets.length) return null;
@@ -97,6 +133,7 @@ class Home extends React.Component {
       <div key={index} className="tweet-display">
         <h1>{this.state.username}</h1>
         <p>{tweet}</p>
+        <button className='delete-tweet' id={index} onClick={this.deleteTweet}>Delete Tweet</button>
       </div>
     ))
   };
