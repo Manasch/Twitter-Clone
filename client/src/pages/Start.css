@@ -7,17 +7,17 @@
 
 html,
 body {
- /* background-image: url("./images/bg1.png");  */
- background-color: white;
-/* background: linear-gradient(90deg, rgba(251,251,150,1) 0%, rgba(235,240,156,1) 50%, rgba(146,247,243,1) 100%);   */
-   /* margin-bottom: 0%;  */
+  /* background-image: url("./images/bg1.png");  */
+  background-color: white;
+  /* background: linear-gradient(90deg, rgba(251,251,150,1) 0%, rgba(235,240,156,1) 50%, rgba(146,247,243,1) 100%);   */
+  /* margin-bottom: 0%;  */
 }
 
 .start .title {
   position: absolute;
   bottom: 50%;
   top: 1%;
-  left: 40%;
+  left: 35%;
   box-sizing: content-box;
   /* background-color: #fffdd0; */
   padding-bottom: 5%;
@@ -49,13 +49,10 @@ body {
   top: 0;
   left: 0;
   width: 1550px;
-
-  
-  
 }
 
 div.bg {
-	height:2000px;
+  height: 2000px;
 }
 
 .split .top {
@@ -73,33 +70,29 @@ div.bg {
 
 .logo {
   position: absolute;
-  width: 10em;
-  height: 10em;
+  width: 5em;
+  height: 5em;
   top: 0em;
   left: 5px;
   bottom: 5em;
 }
 
-
-button {
+/* button {
   background-color: #8080ff;
   border: 2px solid #422800;
   border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
   color: #422800;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
-  font-size: 18px;
-  padding: 0 18px;
-  line-height: 50px;
+  font-size: 10px;
+  line-height: 10px;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   position: relative;
-  
 }
 
 button:hover {
@@ -109,7 +102,7 @@ button:hover {
 button:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
-}
+} */
 
 .bottom {
   /* display: flex;
@@ -117,8 +110,8 @@ button:active {
   position: absolute;
   bottom: 15%;
   right: 15%;
-  
-  height:70px;
+
+  height: 70px;
   width: 200px;
 
   background-color: transparent;
@@ -129,6 +122,7 @@ button:active {
 
 .sign-up {
   position: absolute;
+  /* border: 1px solid black; */
   right: 48%;
   bottom: 200%;
   width: 110px;
@@ -148,48 +142,71 @@ button:active {
   }
 } */
 
-
 .start .desc1 {
-	position: absolute;
-	right: 800px;
-	top:350px;
-	color:transparent;
-	padding-bottom: 1%;
+  position: absolute;
+  right: 800px;
+  top: 350px;
+  color: transparent;
+  padding-bottom: 1%;
   padding-top: 2%;
   padding-left: 7.5%;
   padding-right: 7.5%;
 
-	background: url(images/wp4288362-aesthetic-laptop-wallpapers.jpg);
-	border-color: transparent;
+  background: url(images/wp4288362-aesthetic-laptop-wallpapers.jpg);
+  border-color: transparent;
   color: transparent;
   -webkit-text-stroke: 1px #fff;
-  
+
   -webkit-background-clip: text;
   background-position: 0 0;
 }
 
 .start .desc2 {
-	position: absolute;
-	right: 900px;
-	top:450px;
-	color: transparent;
-	padding-bottom: 1%;
+  position: absolute;
+  right: 900px;
+  top: 450px;
+  color: transparent;
+  padding-bottom: 1%;
   padding-top: 2%;
   padding-left: 7.5%;
   padding-right: 7.5%;
   background: url(images/wp4288362-aesthetic-laptop-wallpapers.jpg);
-	border-color: transparent;
+  border-color: transparent;
   color: transparent;
   -webkit-text-stroke: 1px #fff;
-  
+
   -webkit-background-clip: text;
   background-position: 0 0;
 }
 
 .start .signup {
-    position: absolute;
-  right: 48%;
+  position: absolute;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  border: 1px solid black;
+  font-family: sans-serif;
+  background-color: lightpink;
+  right: 44%;
   bottom: 200%;
   width: 110px;
-  color:#ffe066;
+  color: #ffe066;
+}
+
+.start .login {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  border: 1px solid black;
+  right: 0%;
+  width: 110px;
+  text-decoration: none;
+  font-family: sans-serif;
+  background-color: lightpink;
+}
+
+.start .signup:hover,
+.login:hover {
+  background-color: lightskyblue;
+  text-decoration: none;
 }

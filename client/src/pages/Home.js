@@ -90,14 +90,52 @@ class Home extends React.Component {
     });
   };
 
+  deleteTweet = (event) => {
+    event.preventDefault();
+    let { id } = event.target;
+
+    console.log(this.state.tweets)
+
+    var tweets_array = this.state.tweets;
+    tweets_array.splice(id, 1);
+
+    this.setState({
+      tweets: tweets_array
+    })
+
+    const payload = {
+      username: this.state.username,
+      tweet_id: id,
+      tweets_array: this.state.tweets
+    };
+
+    axios({
+      url: '/api/delete',
+      method: 'PUT',
+      data: payload
+    })
+    .then((response) => {
+      data = response.body;
+      console.log(data)
+      console.log('Data has been sent to the server');
+      this.resetUserInputs();
+      this.setState({tweets: data });
+    })
+    .catch(() => {
+      console.log('Server error while deleting tweets');
+    });
+  };
+
+
   displayTweets = (tweets) => {
 
     if (!tweets.length) return null;
     // console.log(this.state.username);
     return tweets.map((tweet, index) => (
       <div key={index} className="tweet-display">
-        <h1>{this.state.username}</h1>
-        <p>{tweet}</p>
+        <div className="username"><h1>{this.state.username}</h1></div>
+        <p className="tweet-content">{tweet}</p>
+        <button className='delete-tweet' id={index} onClick={this.deleteTweet}>Delete Tweet</button>
       </div>
     ))
   };
@@ -111,14 +149,22 @@ class Home extends React.Component {
     }
     return(
       <div className="home">
-        <h2>Welcome to the best app ever</h2>
-        <button onClick={this.logOut}>Logout</button>
+        <div className="nav">
+        
+        <h1 className="myheader1">Welcome to Raven</h1>
+        <button className="logout" onClick={this.logOut}>Logout</button>
+        <div className="combined">
+        <img className="profpic" src={profpic} alt="Profile" title="Icon"/>
+        <div className="loguser"><h1>{this.state.username}</h1></div>
+        </div></div>
+        {/* <button className="logout" onClick={this.logOut}>Logout</button> */}
 
-        <form onSubmit={this.submit}>
-          {this.state.username}
+        <form className="form-inp" onSubmit={this.submit}>
+          
           <div className="form-input">
             <textarea
-              placeholder="body"
+              className="tweet-input"
+              placeholder="Enter Tweet"
               name="body"
               cols="30"
               rows="10"
@@ -129,12 +175,12 @@ class Home extends React.Component {
             </textarea>
           </div>
 
-          <img className="profpic" src={profpic} alt="Profile" title="Icon"/>
+          {/* <img className="profpic" src={profpic} alt="Profile" title="Icon"/> */}
 
           <button>Submit</button>
         </form>
 
-        <div className="tweet-">
+        <div className="tweet-end">
           {this.displayTweets(this.state.tweets)}
         </div>
       </div>
